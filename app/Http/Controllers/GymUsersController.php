@@ -22,7 +22,7 @@ class GymUsersController extends Controller
     public function index()
     {
         //$contacts=request()->user()->contacts;
-        $gym_users = request()->user->gym_users;
+        $gym_users = request()->user->gym_users()->get();
 
         return Gym_usersResource::collection($gym_users);
     }
