@@ -34,12 +34,12 @@ class GymUsersController extends Controller
      */
     public function store(Request $request)
     {
-        $gym_user = $request->user()->gym_users()-create($request->all());
+        $gym_user = $request->user();
+        //->gym_users()-create($request->all());
+        return $gym_user;
 
-        return new Gym_usersResource($gym_user);
 
-
-
+        //return new Gym_usersResource($gym_user);
     }
 
     /**
