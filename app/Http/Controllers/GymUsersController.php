@@ -17,7 +17,7 @@ class GymUsersController extends Controller
     {
         //
         $gym_users = Gym_users::all();
-        
+
         return Gym_usersResource::collection($gym_users);
     }
     /**
@@ -40,6 +40,7 @@ class GymUsersController extends Controller
     public function show(Gym_users $gym_users)
     {
         //
+        return new Gym_usersResource($gym_users);
     }
 
     /**
