@@ -8,6 +8,12 @@ use App\Http\Resources\Gym_users as Gym_usersResource;
 
 class GymUsersController extends Controller
 {
+
+    function __construct()
+    {
+        return $this->middleware('auth:api');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +34,9 @@ class GymUsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $gym_user = $request->user();
+        return $gym_user;
+
     }
 
     /**
