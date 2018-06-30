@@ -21,8 +21,8 @@ class GymUsersController extends Controller
      */
     public function index()
     {
-        //
-        $gym_users = Gym_users::all();
+        //$contacts=request()->user()->contacts;
+        $gym_users = \request()->user->gym_users;
 
         return Gym_usersResource::collection($gym_users);
     }
