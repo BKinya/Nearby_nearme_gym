@@ -42,12 +42,7 @@ class GymUsersController extends Controller
         $user->save();
 
          */
-        //$gymUser=$request->user()->gym_users()->create($request->all());
-        $gymUser=$request->user()->gym_users();
-        $gymUser->name = $request->name;
-        $gymUser->email = $request->email;
-        $gymUser->password = bcrypt($request->password);
-        $gymUser->save();
+        $gymUser=$request->user()->gym_users()->create($request->all());
         return new Gym_usersResource($gymUser);
     }
 
