@@ -81,13 +81,14 @@ class GymUsersController extends Controller
     public function destroy($id)
     {
         //
-        $record = gym_user()->id;
-        return $record;
-        if (request()->user()->id !== $gym_user->user_id){
-            return response()->json(['error' => 'Unauthorized action'], 401);
-        }
-
-        $gym_user = $gym_user->delete();
-        return response()->json(null, 200);
+        return $id;
+//        $record = gym_user()->id;
+//        return $record;
+//        if (request()->user()->id !== $gym_user->user_id){
+//            return response()->json(['error' => 'Unauthorized action'], 401);
+//        }
+//
+//        $gym_user = $gym_user->delete();
+//        return response()->json(null, 200);
     }
 }
