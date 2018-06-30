@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Gym_users;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Gym_users as Gym_usersResource;
@@ -77,11 +78,13 @@ class GymUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gym_users $gym_user)
+    public function destroy($id)
     {
         //
+        $record = gym_user()->id;
+        return $record;
         if (request()->user()->id !== $gym_user->user_id){
-            return response()->json(['error' => 'Unaothorized action'], 401);
+            return response()->json(['error' => 'Unauthorized action'], 401);
         }
 
         $gym_user = $gym_user->delete();
