@@ -61,12 +61,19 @@ class GymUsersController extends Controller
     public function update(Request $request, Gym_users $gym_users)
     {
         /**
+         *
          * if($request->user()->id !== $contact->user_id){
         return response()->json(['error'=>'Unauthorized action'],401);
         }
+        $contact->update($request->all());
+        return new ContactResource($contact);
          */
-        $id = $request->user()->id;
-        return $id;
+        if($request->user->id !== $gym_users->user_id){
+            return response() ->json(['error' => 'Unauthorized action'], 401);
+        }
+
+        return "Beatrice";
+
     }
 
     /**
