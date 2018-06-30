@@ -36,10 +36,7 @@ class GymUsersController extends Controller
     {
         $gym_user = $request->user()->gym_users()->create($request->all());
         //->gym_users()-create($request->all());
-        return $gym_user;
-
-
-        //return new Gym_usersResource($gym_user);
+        return new Gym_usersResource($gym_user);
     }
 
     /**
@@ -63,7 +60,13 @@ class GymUsersController extends Controller
      */
     public function update(Request $request, Gym_users $gym_users)
     {
-        //
+        /**
+         * if($request->user()->id !== $contact->user_id){
+        return response()->json(['error'=>'Unauthorized action'],401);
+        }
+         */
+        $id = $request->user()->id;
+        return $id;
     }
 
     /**
