@@ -76,7 +76,9 @@ class AuthController extends Controller
         if (Hash::check($request->password, $user->password)){
             /**
              * return response in JSON formart
+             *
              */
+            return "Beatrice";
             $http = new Client;
 
             $response = $http->post(url('oauth/token'), [
