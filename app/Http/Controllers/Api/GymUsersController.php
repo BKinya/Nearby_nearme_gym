@@ -34,8 +34,20 @@ class GymUsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $gymUser=$request->user()->gym_users()->create($request->all());
+        /**
+         * $user = User::firstOrNew(['email'=>$request->email]);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+         */
+        //$gymUser=$request->user()->gym_users()->create($request->all());
+        $gymUser=$request->user()->gym_users();
+        $gymUser->name = $request->name;
+        $gymUser->email = $request->email;
+        $gymUser->password = bcrypt($request->password);
+        $gymUser->save();
         return new Gym_usersResource($gymUser);
     }
 
