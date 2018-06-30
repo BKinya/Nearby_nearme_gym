@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Gym_users;
 
-class Gymn_UsersTableSeeder extends Seeder
+class Gym_UsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,5 +13,6 @@ class Gymn_UsersTableSeeder extends Seeder
     public function run()
     {
         //
+        return factory(Gym_users::class, 5)->create();
     }
 }
