@@ -28,7 +28,5 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function gym_users(){
-        return $this->hasMany(Gym_users::class);
-    }
+
 }
