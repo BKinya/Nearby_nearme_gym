@@ -15,7 +15,7 @@ class AuthController extends Controller
      */
     public function register(Request $request){
 
-        return "Beatrice";
+
         //validate user inputs
         $request->validate([
             'email' => 'required',
@@ -32,6 +32,7 @@ class AuthController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
+        return $request->name;
         /**
          * return response in JSON formart
          */
