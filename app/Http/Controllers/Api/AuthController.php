@@ -14,6 +14,7 @@ class AuthController extends Controller
      *
      */
     public function register(Request $request){
+
         return "Beatrice";
         //validate user inputs
         $request->validate([
