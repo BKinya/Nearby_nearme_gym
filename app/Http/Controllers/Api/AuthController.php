@@ -6,6 +6,8 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Hash;
+
 
 class AuthController extends Controller
 {
@@ -51,7 +53,45 @@ class AuthController extends Controller
 
     }
 
+    /**
+     * @param Request $request
+     */
+
     public function login(Request $request){
+        /**
+         * validate user input
+         */
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        //check if the user exists
+        $user = User::where('email', $request->email)->first();
+
+        if(!$user){
+            return response(['status' => 'error', 'message' => 'user not found']);
+        }
+
+        if (Hash::check($request->password, $user->password)){
+            /**
+             * return response in JSON formart
+             */
+            $http = new Client;
+
+            $response = $http->post(url('oauth/token'), [
+                'form_params' => [
+                    'grant_type' => 'password',
+                    'client_id' => '5',
+                    'client_secret' => 'rVYYZQQv1flkqS2Dccst92dWA4ISZID9o3ovcKux',
+                    'username' => $request->email,
+                    'password' => $request->password,
+                    'scope' => '',
+                ],
+            ]);
+
+            return response(['data' => json_decode((string) $response->getBody(), true)]);
+        }
 
     }
 }
