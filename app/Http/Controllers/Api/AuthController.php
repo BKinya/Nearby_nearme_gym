@@ -78,7 +78,6 @@ class AuthController extends Controller
              * return response in JSON formart
              *
              */
-            return "Beatrice";
             $http = new Client;
 
             $response = $http->post(url('oauth/token'), [
