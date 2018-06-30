@@ -34,7 +34,11 @@ class GymUsersController extends Controller
      */
     public function store(Request $request)
     {
-        $gym_user = $request->user();
+        $gym_user = $request->user()->gym_users();
+        $gym_user->name = $request->name;
+        $gym_user->email = $request->email;
+        $gym_user->password = bcrypt($request->password);
+        $gym_user->save();
         return $gym_user;
 
     }
