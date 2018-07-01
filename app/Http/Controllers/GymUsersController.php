@@ -81,7 +81,7 @@ class GymUsersController extends Controller
      * @param  \App\Gym_users  $gym_users
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gym_users $gym_users)
+    public function destroy($id)
     {
 
         /**
@@ -91,6 +91,6 @@ class GymUsersController extends Controller
         $contact=$contact->delete();
         return response()->json(null,200);
          */
-        return $gym_users->user_id;
+        return $id;
     }
 }
