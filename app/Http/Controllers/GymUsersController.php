@@ -47,10 +47,7 @@ class GymUsersController extends Controller
      */
     public function show(Gym_users $gym_users)
     {
-        //
-        $gymUsers = Gym_users::find($gym_users)->first() ;
-        return new Gym_usersResource($gymUsers);
-
+        return $gym_users;
     }
 
     /**
