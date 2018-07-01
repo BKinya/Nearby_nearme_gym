@@ -17,7 +17,7 @@ class GymUsersController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
     {
@@ -26,11 +26,12 @@ class GymUsersController extends Controller
 
         return Gym_usersResource::collection($gym_users);
     }
+
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request $request
+     * @return Gym_usersResource
      */
     public function store(Request $request)
     {
@@ -42,8 +43,8 @@ class GymUsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Gym_users  $gym_users
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return Gym_usersResource
      */
     public function show($id)
     {
@@ -54,8 +55,8 @@ class GymUsersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Gym_users  $gym_users
+     * @param  \Illuminate\Http\Request $request
+     * @param $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
