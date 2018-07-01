@@ -70,7 +70,8 @@ class GymUsersController extends Controller
 
         //$contact->update($request->all());
 
-        $gym_user->update($request->all());
+        $user_id->update($request->all());
+        return $user_id;
 
     }
 
