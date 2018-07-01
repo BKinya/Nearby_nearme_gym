@@ -93,6 +93,6 @@ class GymUsersController extends Controller
 
         $user = Gym_users::find($id);
         $user->delete();
-        return response()->json(null,200);
+        return $user_id;
     }
 }
