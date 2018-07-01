@@ -48,7 +48,8 @@ class GymUsersController extends Controller
     public function show(Gym_users $gym_users)
     {
         //
-        return $gym_users;
+        return new Gym_usersResource($gym_users);
+
     }
 
     /**
