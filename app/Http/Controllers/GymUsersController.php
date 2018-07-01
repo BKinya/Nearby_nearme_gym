@@ -48,6 +48,7 @@ class GymUsersController extends Controller
     public function show(Gym_users $gym_users)
     {
         //
+        $gym_users = request()->user()->gym_users->where('id', $gym_users)->first() ;
         return new Gym_usersResource($gym_users);
 
     }
