@@ -71,7 +71,7 @@ class GymUsersController extends Controller
         //$contact->update($request->all());
 
         $user_id->update($request->all());
-        return new Gym_usersResourc($user_id);
+        return new Gym_usersResource($user_id);
 
     }
 
