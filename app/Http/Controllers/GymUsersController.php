@@ -83,6 +83,15 @@ class GymUsersController extends Controller
      */
     public function destroy(Gym_users $gym_users)
     {
-        //
+
+        /**
+         * if(request()->user()->id !== $contact->user_id){
+        return response()->json(['error'=>'Unauthorized action'],401);
+        }
+        $contact=$contact->delete();
+        return response()->json(null,200);
+         */
+        $userid = \request()->user->id;
+        return $userid;
     }
 }
