@@ -50,6 +50,7 @@ class AuthController extends Controller
         ]);
 
         return response(['data' => json_decode((string) $response->getBody(), true)]);
+        //TODO make response more user friendly
 
     }
 
