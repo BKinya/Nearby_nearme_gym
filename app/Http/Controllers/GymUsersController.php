@@ -87,12 +87,12 @@ class GymUsersController extends Controller
         /**
          * check if the user exists
          */
-        if (request()->user()->id  !== $user_id){
+        if (request()->user()->id  != $user_id){
             return response()->json(['error'=>'Unauthorized action'],401);
         }
 
         $user = Gym_users::find($id);
         $user->delete();
-        return $user_id;
+        return response()->json(null,200);
     }
 }
