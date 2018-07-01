@@ -45,9 +45,10 @@ class GymUsersController extends Controller
      * @param  \App\Gym_users  $gym_users
      * @return \Illuminate\Http\Response
      */
-    public function show(Gym_users $gym_users)
+    public function show($id)
     {
-        return $gym_users;
+        $gym_user = Gym_users::where('id', $id)->first();
+        return new Gym_usersResource($gym_user);
     }
 
     /**
@@ -71,7 +72,6 @@ class GymUsersController extends Controller
         //$contact->update($request->all());
 
         $user_id->update($request->all());
-        return $request->all();
         return new Gym_usersResource($user_id);
 
     }
