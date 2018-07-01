@@ -91,6 +91,6 @@ class GymUsersController extends Controller
         $contact=$contact->delete();
         return response()->json(null,200);
          */
-        return $id;
+        return \request()->user()->id;
     }
 }
