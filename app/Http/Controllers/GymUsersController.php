@@ -91,7 +91,9 @@ class GymUsersController extends Controller
         $contact=$contact->delete();
         return response()->json(null,200);
          */
-        $userid = $gym_users->user_id;
-        return $userid;
+        if (\request()->user()->id == $gym_users->user_id){
+            return "Beatrice";
+        }
+        
     }
 }
