@@ -87,7 +87,7 @@ class GymUsersController extends Controller
         /**
          * check if the user exists
          */
-        if (request()->user()->id  != $user_id){
+        if (request()->user()->id  !== $user_id){
             return response()->json(['error'=>'Unauthorized action'],401);
         }
 
