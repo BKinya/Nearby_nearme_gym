@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    {{--action="{{action('PrescriptionController@store')}}"--}}
+
                     <form method="POST" action="{{action('Api\AuthController@login')}}" aria-label="{{ __('Login') }}">
                         @csrf
 
