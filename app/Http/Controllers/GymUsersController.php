@@ -57,28 +57,27 @@ class GymUsersController extends Controller
      * @param  \App\Gym_users  $gym_users
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Gym_users $gym_users)
+    public function update(Request $request, $id)
     {
+        $gym_user = new Gym_users();
+        $user_id = Gym_users::where('id', $id)->first();
         /**
-         *
-         * if($request->user()->id !== $contact->user_id){
-        return response()->json(['error'=>'Unauthorized action'],401);
-        }
-        $contact->update($request->all());
-        return new ContactResource($contact);
+         * check if the user exists
          */
-        if($request->user->id !== $gym_users->user_id){
-            return response() ->json(['error' => 'Unauthorized action'], 401);
+        if (request()->user()->id  !== $user_id->user_id){
+            return response()->json(['error'=>'Unauthorized action'],401);
         }
 
-        return "Beatrice";
+        //$contact->update($request->all());
+
+        $gym_user->update($request->all());
 
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Gym_users  $gym_users
+     * @param $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
