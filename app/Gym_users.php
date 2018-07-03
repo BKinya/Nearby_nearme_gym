@@ -16,7 +16,7 @@ class Gym_users extends Model
         'name', 'email', 'password',
     ];
 
-    public function user(){
-        return $this->belongsTo(User::class);
-    }
+   public function user_profile(){
+       return $this->hasOne('App\User_profile');
+   }
 }

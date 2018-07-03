@@ -35,17 +35,7 @@ class GymUsersController extends Controller
      */
     public function store(Request $request)
     {
-        /**
-         * $article = $request->isMethod('put') ? Article::findOrFail($request->article_id) : new Article;
-        $article->id = $request->input('article_id');
-        $article->title = $request->input('title');
-        $article->body = $request->input('body');
-        if($article->save()) {
-        return new ArticleResource($article);
-        }
-         */
-        //$gym_user = $request->user()->create($request->all());
-        //->gym_users()-create($request->all());
+
         $gym_user = $request->isMethod('put') ? Gym_users::findOrFail($request->id) : new Gym_users;
         $gym_user->name = $request->name;
         $gym_user->email = $request->email;
