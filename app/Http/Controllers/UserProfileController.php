@@ -29,7 +29,7 @@ class UserProfileController extends Controller
     public function store(Request $request)
     {
 
-        $id = Gym_users::where('email', $request->email)->get('id');
+        $id = Gym_users::where('email', $request->email)->get(['id']);
         return $id;
         //$contact=$request->user()->contacts()->create($request->all());
         $user_profile = $request->gym_users()->user_profile()->create($request->all());
