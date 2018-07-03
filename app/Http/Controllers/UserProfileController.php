@@ -30,10 +30,28 @@ class UserProfileController extends Controller
     {
 
         $id = Gym_users::where('email', $request->email)->get(['id']);
-        return $id;
-        //$contact=$request->user()->contacts()->create($request->all());
-        $user_profile = $request->gym_users()->user_profile()->create($request->all());
+        /**
+         * $gym_user = $request->isMethod('put') ? Gym_users::findOrFail($request->id) : new Gym_users;
+        $gym_user->name = $request->name;
+        $gym_user->email = $request->email;
+        $gym_user->password = bcrypt($request->password);
+        $gym_user->save();
+        return new Gym_usersResource($gym_user);
+         */
+
+        $user_profile = $request ->isMethod('put') ? User_profile::findOrFail($request->id) : new User_profile;
+        $user_profile->gym_users_id = $id;
+        $user_profile->name = $request->name;
+        $user_profile->email = $request->email;
+        $user_profile->phone = $request->phone;
+        $user_profile->gender = $request->gender;
+        $user_profile->age = $request->age;
+        $user_profile->current_weight = $request->current_weight;
+        $user_profile->target_weight= $request->target_weight;
+        $user_profile->save();
+
         return new user_profileResource($user_profile);
+
     }
 
     /**
