@@ -9,10 +9,10 @@ use App\Http\Resources\Gym_users as Gym_usersResource;
 class GymUsersController extends Controller
 {
 
-    function __construct()
-    {
-        return $this->middleware('auth:api');
-    }
+//    function __construct()
+//    {
+//        return $this->middleware('auth:api');
+//    }
 
     /**
      * Display a listing of the resource.
