@@ -27,7 +27,7 @@ class UserProfileController extends Controller
      */
     public function store(Request $request)
     {
-        $user_profile = $request->gym_user()->user_profile()->create($request->all());
+        $user_profile = $request->gym_users()->user_profile()->create($request->all());
         return user_profileResourc($user_profile);
     }
 
