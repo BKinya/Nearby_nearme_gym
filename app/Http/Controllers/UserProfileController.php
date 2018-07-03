@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Gym_users;
 use App\User_profile;
 use Illuminate\Http\Request;
 use App\Http\Resources\user_profile as user_profileResource;
@@ -27,7 +28,9 @@ class UserProfileController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+
+        $id = Gym_users::where('email', $request->email)->first();
+        return $id;
         //$contact=$request->user()->contacts()->create($request->all());
         $user_profile = $request->gym_users()->user_profile()->create($request->all());
         return new user_profileResource($user_profile);
