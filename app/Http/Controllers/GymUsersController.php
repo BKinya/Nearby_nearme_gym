@@ -35,7 +35,6 @@ class GymUsersController extends Controller
      */
     public function store(Request $request)
     {
-
         $gym_user = $request->isMethod('put') ? Gym_users::findOrFail($request->id) : new Gym_users;
         $gym_user->name = $request->name;
         $gym_user->email = $request->email;
@@ -70,8 +69,8 @@ class GymUsersController extends Controller
         /**
          * check if the user exists
          */
-        if (request()->user()->id  !== $user_id->user_id){
-            return response()->json(['error'=>'Unauthorized action'],401);
+        if (request()->user()->id !== $user_id->user_id) {
+            return response()->json(['error' => 'Unauthorized action'], 401);
         }
 
         //$contact->update($request->all());
@@ -93,12 +92,12 @@ class GymUsersController extends Controller
         /**
          * check if the user exists
          */
-        if (request()->user()->id  !== $user_id->user_id){
-            return response()->json(['error'=>'Unauthorized action'],401);
+        if (request()->user()->id !== $user_id->user_id) {
+            return response()->json(['error' => 'Unauthorized action'], 401);
         }
 
         $user = Gym_users::find($id);
         $user->delete();
-        return response()->json(null,200);
+        return response()->json(null, 200);
     }
 }
