@@ -15,7 +15,7 @@ class CreateGymUsersTable extends Migration
     {
         Schema::create('gym_users', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+
             $table->string('name', 20);
             $table->string('email', 55);
             $table->text('password');
