@@ -29,7 +29,7 @@ class UserProfileController extends Controller
     public function store(Request $request)
     {
 
-        $id = Gym_users::where('email', $request->email)->get(['id']);
+        $id = Gym_users::where('email', $request->email)->first();
         /**
          * $gym_user = $request->isMethod('put') ? Gym_users::findOrFail($request->id) : new Gym_users;
         $gym_user->name = $request->name;
@@ -37,7 +37,9 @@ class UserProfileController extends Controller
         $gym_user->password = bcrypt($request->password);
         $gym_user->save();
         return new Gym_usersResource($gym_user);
+         *
          */
+        return $id->id;
 
         $user_profile = $request ->isMethod('put') ? User_profile::findOrFail($request->id) : new User_profile;
         $user_profile->gym_users_id = $id;
