@@ -18,11 +18,11 @@ class CreateUserProfilesTable extends Migration
             $table->integer('gym_users_id');
             $table->string('name', 55);
             $table->string('email', 55);
-            $table->integer('phone');
+            $table->string('phone', 20);
             $table->string('gender', 10);
-            $table->integer('age');
-            $table->integer('current_weight');
-            $table->integer('target_weight');
+            $table->string('age', 10);
+            $table->string('current_weight', 10);
+            $table->string('target_weight', 10);
             $table->timestamps();
         });
     }
