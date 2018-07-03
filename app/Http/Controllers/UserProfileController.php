@@ -39,10 +39,8 @@ class UserProfileController extends Controller
         return new Gym_usersResource($gym_user);
          *
          */
-        return $id->id;
-
         $user_profile = $request ->isMethod('put') ? User_profile::findOrFail($request->id) : new User_profile;
-        $user_profile->gym_users_id = $id;
+        $user_profile->gym_users_id = $id->id;
         $user_profile->name = $request->name;
         $user_profile->email = $request->email;
         $user_profile->phone = $request->phone;
