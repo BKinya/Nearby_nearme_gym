@@ -90,9 +90,9 @@ class GymUsersController extends Controller
             return response()->json(["mesage", "user does not exist"]);
         }
 
-        if (Hash::check($password, $user->password)){
-            return response()->json(["mesage", "invalid login"]);
-        }
+//        if (Hash::check($password, $user->password)){
+//            return response()->json(["mesage", "invalid login"]);
+//        }
 
         return response()->json(["mesage", "success"]);
     }
