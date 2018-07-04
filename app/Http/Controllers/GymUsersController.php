@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Gym_users;
 use Illuminate\Http\Request;
 use App\Http\Resources\Gym_users as Gym_usersResource;
-use phpseclib\Crypt\Hash;
+//use phpseclib\Crypt\Hash;
 
 class GymUsersController extends Controller
 {
