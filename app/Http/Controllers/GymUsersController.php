@@ -6,6 +6,8 @@ use App\Gym_users;
 use Illuminate\Http\Request;
 use App\Http\Resources\Gym_users as Gym_usersResource;
 //use phpseclib\Crypt\Hash;
+use Illuminate\Support\Facades\Hash;
+
 
 class GymUsersController extends Controller
 {
