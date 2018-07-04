@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Gym_users;
 use Illuminate\Http\Request;
 use App\Http\Resources\Gym_users as Gym_usersResource;
+use phpseclib\Crypt\Hash;
 
 class GymUsersController extends Controller
 {
@@ -78,6 +79,22 @@ class GymUsersController extends Controller
         $user_id->update($request->all());
         return new Gym_usersResource($user_id);
 
+    }
+
+    public function login($email, $password){
+
+        //check if the user exists
+        $user = Gym_users::where('email', $email)->first();
+
+        if (!$user){
+            return response()->json(["mesage", "user does not exist"]);
+        }
+
+        if (!Hash::check($password, $user->password)){
+            return response()->json(["mesage", "invalid login"]);
+        }
+
+        return response()->json(["mesage", "success"]);
     }
 
     /**
