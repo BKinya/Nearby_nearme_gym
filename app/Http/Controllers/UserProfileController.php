@@ -32,15 +32,6 @@ class UserProfileController extends Controller
     {
 
         $id = Gym_users::where('email', $request->email)->first();
-        /**
-         * $gym_user = $request->isMethod('put') ? Gym_users::findOrFail($request->id) : new Gym_users;
-        $gym_user->name = $request->name;
-        $gym_user->email = $request->email;
-        $gym_user->password = bcrypt($request->password);
-        $gym_user->save();
-        return new Gym_usersResource($gym_user);
-         *
-         */
         $user_profile = $request ->isMethod('put') ? User_profile::findOrFail($request->id) : new User_profile;
         $user_profile->gym_users_id = $id->id;
         $user_profile->name = $request->name;
@@ -62,9 +53,11 @@ class UserProfileController extends Controller
      * @param  \App\User_profile  $user_profile
      * @return \Illuminate\Http\Response
      */
-    public function show(User_profile $user_profile)
+    public function show($id)
     {
-        //
+        $user = User_profile::where('email', $id)->first();
+
+        return new user_profileResource($user);
     }
 
     /**
