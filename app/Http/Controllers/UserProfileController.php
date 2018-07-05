@@ -17,6 +17,8 @@ class UserProfileController extends Controller
     public function index()
     {
         //
+        $user_profile = User_profile::all();
+        return user_profileResource::collection($user_profile);
     }
 
 
