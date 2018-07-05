@@ -55,7 +55,7 @@ class UserProfileController extends Controller
      */
     public function show($id)
     {
-        $user = User_profile::where('email', $id)->first();
+        $user = User_profile::where('id', $id)->first();
 
         return new user_profileResource($user);
     }
