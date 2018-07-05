@@ -14,6 +14,15 @@ class user_profile extends JsonResource
      */
     public function toArray($request)
     {
-        return $this->toArray($request);
+        return [
+            'name' => $this->name,
+            'email' => $this->email,
+            'phone' => $this->phone,
+            'gender' => $this->gender,
+            'age' =>$this->age,
+            'current_weight' =>$this->current_weight,
+            'target_weight' => $this->target_weight
+
+        ];
     }
 }
