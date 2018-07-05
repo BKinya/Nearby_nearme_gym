@@ -57,7 +57,9 @@ class UserProfileController extends Controller
     {
         $user = User_profile::where('email', $email)->first();
 
-        return new user_profileResource($user);
+        return $user;
+
+        //return new user_profileResource($user);
     }
 
     /**
