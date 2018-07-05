@@ -53,9 +53,9 @@ class UserProfileController extends Controller
      * @param  \App\User_profile  $user_profile
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($email)
     {
-        $user = User_profile::where('id', $id)->first();
+        $user = User_profile::where('email', $email)->first();
 
         return new user_profileResource($user);
     }

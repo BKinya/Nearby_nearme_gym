@@ -17,7 +17,7 @@ class user_profile extends JsonResource
         return [
             'name' => $this->name,
             'email' => $this->email,
-            'phone' => $this->phonr,
+            'phone' => $this->phone,
             'gender' => $this->gender,
             'age' =>$this->age,
             'current_weight' =>$this->current_weight,
