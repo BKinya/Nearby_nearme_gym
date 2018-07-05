@@ -89,14 +89,14 @@ class GymUsersController extends Controller
         $user = Gym_users::where('email', $email)->first();
 
         if (!$user){
-            return response()->json(["messgage", "user does not exist"]);
+            return response()->json(["messgage"=> "user does not exist"]);
         }
 
         if (!Hash::check($password, $user->password)){
-            return response()->json(["message", "invalid login"]);
+            return response()->json(["message"=> "invalid login"]);
         }
 
-        return response()->json(["message", "success"]);
+        return response()->json(["message" =>"success"]);
     }
 
     /**
