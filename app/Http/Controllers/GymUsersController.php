@@ -52,9 +52,9 @@ class GymUsersController extends Controller
      * @param $id
      * @return Gym_usersResource
      */
-    public function show($id)
+    public function show($email)
     {
-        $gym_user = Gym_users::where('id', $id)->first();
+        $gym_user = Gym_users::where('email', $email)->first();
         return new Gym_usersResource($gym_user);
     }
 
