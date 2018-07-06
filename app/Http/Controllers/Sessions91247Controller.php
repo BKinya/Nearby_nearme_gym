@@ -49,11 +49,11 @@ class Sessions91247Controller extends Controller
     public function show(Request $request)
     {
         //return all workout sessions for a given user
-        $user = Gym_users::where('email', $request->email)->first();
+        $user = Gym_users::where('id',19 )->first();
         return $user;
-        $id = $user->id;
-        $workout_sessions = Gym_users::find($id)->sessions_91247;
-        return $workout_sessions;
+//        $id = $user->id;
+//        $workout_sessions = Gym_users::find($id)->sessions_91247;
+//        return $workout_sessions;
 
     }
 
