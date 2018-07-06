@@ -16,7 +16,7 @@ class CreateSessions91247sTable extends Migration
         Schema::create('sessions_91247s', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('gym_users_id');
-            $table->date('date');
+            $table->string('date', 30);
             $table->string('exercise_type_name', 55);
             $table->integer('no_of_sets');
             $table->timestamps();
