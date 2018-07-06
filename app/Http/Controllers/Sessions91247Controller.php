@@ -50,6 +50,7 @@ class Sessions91247Controller extends Controller
     {
         //return all workout sessions for a given user
         $user = Gym_users::where('email', $request->email)->first();
+        return $user;
         $id = $user->id;
         $workout_sessions = Gym_users::find($id)->sessions_91247;
         return $workout_sessions;
