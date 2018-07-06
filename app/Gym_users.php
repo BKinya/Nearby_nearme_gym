@@ -19,4 +19,8 @@ class Gym_users extends Model
    public function user_profile(){
        return $this->hasOne('App\User_profile');
    }
+
+   public function sessions_91247(){
+       return $this->hasMany(sessions_91247::class);
+   }
 }
