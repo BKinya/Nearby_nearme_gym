@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Gym_users;
 use App\sessions_91247;
 use Illuminate\Http\Request;
 
@@ -17,15 +18,6 @@ class Sessions91247Controller extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +27,15 @@ class Sessions91247Controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $id = Gym_users::where('email', $request->email)-first();
+        $workout_session = $request ->isMethod('put') ? sessions_91247::findOrFail($request->id) : new sessions_91247;
+        $workout_session->gym_users_id = $id->id;
+        $workout_session->date = $request->date;
+        $workout_session->exercise_type_name = $request->exercise_type_name;
+        $workout_session->no_of_sets = $request->no_of_sets;
+        $workout_session->save;
+
+        return $workout_session;
     }
 
     /**
@@ -49,16 +49,6 @@ class Sessions91247Controller extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\sessions_91247  $sessions_91247
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(sessions_91247 $sessions_91247)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

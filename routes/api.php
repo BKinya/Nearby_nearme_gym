@@ -23,3 +23,5 @@ Route::post('/login', 'Api\AuthController@login');
 Route::get('login/{email}/{password}' , 'GymUsersController@login');
 Route::apiResource('gymUser', 'GymUsersController');
 Route::apiResource('user_profile', 'UserProfileController');
+
+Route::apiResource('workout_sessions', 'Sessions91247Controller');

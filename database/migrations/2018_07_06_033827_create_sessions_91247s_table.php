@@ -17,7 +17,7 @@ class CreateSessions91247sTable extends Migration
             $table->increments('id');
             $table->integer('gym_users_id');
             $table->date('date');
-            $table->string('exercise_type/name', 55);
+            $table->string('exercise_type_name', 55);
             $table->integer('no_of_sets');
             $table->timestamps();
         });
