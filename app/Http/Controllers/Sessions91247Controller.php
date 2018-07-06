@@ -15,7 +15,9 @@ class Sessions91247Controller extends Controller
      */
     public function index()
     {
-        //
+
+
+
     }
 
 
@@ -44,9 +46,13 @@ class Sessions91247Controller extends Controller
      * @param  \App\sessions_91247  $sessions_91247
      * @return \Illuminate\Http\Response
      */
-    public function show(sessions_91247 $sessions_91247)
+    public function show(Request $request)
     {
-        //
+        //return all workout sessions for a given user
+        $id = Gym_users::where('email', $request->email)->first();
+        $workout_sessions = Gym_users::find($id)->sessions_91247;
+        return $workout_sessions;
+
     }
 
 
