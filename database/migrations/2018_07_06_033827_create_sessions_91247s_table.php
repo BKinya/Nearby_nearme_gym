@@ -13,12 +13,12 @@ class CreateSessions91247sTable extends Migration
      */
     public function up()
     {
-        Schema::create('sessions_91247', function (Blueprint $table) {
+        Schema::create('sessions_91247s', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('gym_users_id');
             $table->date('date');
-            $table->string('exercise_name/type', 55);
-            $table->integer('number_of_sets');
+            $table->string('exercise_type/name', 55);
+            $table->integer('no_of_sets');
             $table->timestamps();
         });
     }

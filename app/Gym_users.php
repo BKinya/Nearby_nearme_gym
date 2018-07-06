@@ -23,4 +23,5 @@ class Gym_users extends Model
    public function sessions_91247(){
        return $this->hasMany(sessions_91247::class);
    }
+
 }
