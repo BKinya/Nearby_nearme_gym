@@ -27,7 +27,7 @@ class Sessions91247Controller extends Controller
      */
     public function store(Request $request)
     {
-        $id = Gym_users::where('email', $request->email)-first();
+        $id = Gym_users::where('email', $request->email)->first();
         $workout_session = $request ->isMethod('put') ? sessions_91247::findOrFail($request->id) : new sessions_91247;
         $workout_session->gym_users_id = $id->id;
         $workout_session->date = $request->date;
