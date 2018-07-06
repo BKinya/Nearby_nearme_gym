@@ -33,7 +33,7 @@ class Sessions91247Controller extends Controller
         $workout_session->date = $request->date;
         $workout_session->exercise_type_name = $request->exercise_type_name;
         $workout_session->no_of_sets = $request->no_of_sets;
-        $workout_session->save;
+        $workout_session->save();
 
         return $workout_session;
     }
